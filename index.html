@@ -77,6 +77,89 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-27.二叉树的镜像" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/16/27.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-04-16T07:31:48.810Z" itemprop="datePublished">2022-04-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="27-二叉树的镜像"><a href="#27-二叉树的镜像" class="headerlink" title="27.二叉树的镜像"></a>27.二叉树的镜像</h1><p>难度(easy）</p>
+<h3 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h3><p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
+<p>例如输入：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     <span class="number">4</span></span><br><span class="line">   /   \</span><br><span class="line">  <span class="number">2</span>     <span class="number">7</span></span><br><span class="line"> / \   / \</span><br><span class="line"><span class="number">1</span>   <span class="number">3</span> <span class="number">6</span>   <span class="number">9</span></span><br></pre></td></tr></table></figure>
+<p>镜像输出：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     <span class="number">4</span></span><br><span class="line">   /   \</span><br><span class="line">  <span class="number">7</span>     <span class="number">2</span></span><br><span class="line"> / \   / \</span><br><span class="line"><span class="number">9</span>   <span class="number">6</span> <span class="number">3</span>   <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><blockquote>
+<p>输入：root &#x3D; [4,2,7,1,3,6,9]<br>输出：[4,7,2,9,6,3,1]</p>
+</blockquote>
+<h3 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h3><p>使用递归，先交换当前结点的左右孩子，再使左右孩子分别成为当前节点，继续交换直至其左右孩子为空。</p>
+<h3 id="AC代码如下："><a href="#AC代码如下：" class="headerlink" title="AC代码如下："></a>AC代码如下：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     struct TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     struct TreeNode *right;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> TreeNode* <span class="title function_">mirrorTree</span><span class="params">(<span class="keyword">struct</span> TreeNode* root)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!root)   <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>* <span class="title">temp</span>;</span></span><br><span class="line">    temp=root-&gt;left;</span><br><span class="line">    root-&gt;left=root-&gt;right;</span><br><span class="line">    root-&gt;right=temp;</span><br><span class="line">    mirrorTree(root-&gt;left);</span><br><span class="line">    mirrorTree(root-&gt;right);</span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/16/27.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/" data-id="cl21jua0m0000t4tk3tlo85pi" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-《如何阅读一本书》" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/04/12/%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6%E3%80%8B/" class="article-date">
+  <time class="dt-published" datetime="2022-04-12T15:31:21.910Z" itemprop="datePublished">2022-04-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="《如何阅读一本书》读书笔记"><a href="#《如何阅读一本书》读书笔记" class="headerlink" title="《如何阅读一本书》读书笔记"></a>《如何阅读一本书》读书笔记</h1><h2 id="一、阅读的活力"><a href="#一、阅读的活力" class="headerlink" title="一、阅读的活力"></a>一、阅读的活力</h2><p>只有进行主动阅读，才谈阅读技巧，才能提高理解力。</p>
+<h2 id="二、阅读的层次"><a href="#二、阅读的层次" class="headerlink" title="二、阅读的层次"></a>二、阅读的层次</h2><h3 id="1-基础阅读"><a href="#1-基础阅读" class="headerlink" title="1.基础阅读"></a>1.基础阅读</h3><p>认字词，明字面义</p>
+<h3 id="2-检视阅读"><a href="#2-检视阅读" class="headerlink" title="2.检视阅读"></a>2.检视阅读</h3><p>在特定较短时间内掌握书中重点。</p>
+<h3 id="3-分析阅读"><a href="#3-分析阅读" class="headerlink" title="3.分析阅读"></a>3.分析阅读</h3><p>重在追寻理解，在无限时间内做最完整的阅读，直到这本书成为你自己。</p>
+<h3 id="4-主题阅读"><a href="#4-主题阅读" class="headerlink" title="4.主题阅读"></a>4.主题阅读</h3><p>总结书的架构，找出与此书主题相同的所有书，旁征博引，比较阅读。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/04/12/%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6%E3%80%8B/" data-id="cl21jua0s0001t4tkh5aj8gbz" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-TED-1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/05/TED-1/" class="article-date">
@@ -99,8 +182,11 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h3 id="1-treat-life-as-a-growth-experience"><a href="#1-treat-life-as-a-growth-experience" class="headerlink" title="1.  treat life as a growth experience"></a>1.  treat life as a growth experience</h3><p>One of the greatest days in a human being’s life on the journey of emotional maturity is the day we realize that life is not a comfort centric experience,but a growth experience. </p>
-<h3 id="2-unhook-the-energy-of-resistance-and-free-up-that-energy-to-challenge"><a href="#2-unhook-the-energy-of-resistance-and-free-up-that-energy-to-challenge" class="headerlink" title="2. unhook the energy of resistance and free up that energy to challenge"></a>2. unhook the energy of resistance and free up that energy to challenge</h3><p>Instead of just siting there and feel sorry for yourself , just implemented a zero tolerance policy on thinking of thoughts that started with “if only…”or”what if…”,because all of us can’t go back and change anything.</p>
+        <h3 id="1-Treat-life-as-a-growth-experience"><a href="#1-Treat-life-as-a-growth-experience" class="headerlink" title="1.  Treat life as a growth experience"></a>1.  Treat life as a growth experience</h3><p>One of the greatest days in a human being’s life on the journey of emotional maturity is the day we realize that life is not a comfort centric experience,but a growth experience. </p>
+<h3 id="2-Don’t-focus-too-much-on-the-past"><a href="#2-Don’t-focus-too-much-on-the-past" class="headerlink" title="2. Don’t focus too much on the past"></a>2. Don’t focus too much on the past</h3><p>Instead of just siting there and feel sorry for yourself , we should <u>implement a zero tolerance policy</u> on thinking of thoughts that started with “if only…”or”what if…”,because all of us can’t go back and change anything. </p>
+<p>Free up that energy to challenge or to deal with what’s happened. Just do it now! </p>
+<h3 id="3-Every-adversity-carries-with-it-the-seed-of-an-equivalent-or-greater-benefit"><a href="#3-Every-adversity-carries-with-it-the-seed-of-an-equivalent-or-greater-benefit" class="headerlink" title="3. Every adversity carries with it the seed of an equivalent or greater benefit."></a>3. Every adversity carries with it the seed of an equivalent or greater benefit.</h3><p>Most of us are so busy focused on the adversity,we don’t water the seed.</p>
+<p>I’m a great believer that many of the gifts in life that come to us are wrapped in a thin layer of problems, probably to stop somebody else from stealing a gift. XD</p>
 <p><em><strong>to be continued……..</strong></em></p>
 
       
@@ -257,6 +343,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/04/16/27.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/12/%E3%80%8A%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E4%B8%80%E6%9C%AC%E4%B9%A6%E3%80%8B/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2022/04/05/TED-1/">TED-How to be a better version of yourself in times of bad</a>
